@@ -54,28 +54,6 @@ Explainable-Cross-Modal-Appliance-Event-Classification/
 
 ---
 
-## 🚀 How to Run the Code
-
-Execute the notebooks sequentially in the following three-stage pipeline:
-
-### Stage 1: Event Detection & Feature Extraction (`data_collection.ipynb`)
-* Update the file paths in the notebook to point to your local **UK-DALE Household 1** low-frequency and $16\text{ kHz}$ data directories.
-* Run all cells to:
-  1. Detect active appliance state transitions using appliance power thresholds $[\tau_{\min}, \tau_{\max}]$ and minimum off-duration $\delta_{\text{off}}$.
-  2. Extract baseline current $i_q(n)$ ($5\text{ s}$ pre-onset) and incremental current $i_{\Delta,T}(n)$ across offsets $T = \{0, 3, 8, 15, 30, 60\}\text{ s}$ using 320-sample ($20\text{ ms}$) windows.
-  3. Compute RMS voltage/current, active/reactive/apparent power, power factor, crest factor, and 3rd/5th/7th harmonics via 320-point FFT.
-
-### Stage 2: Hybrid Cross-Modal Dataset Generation (`sequence_data_generator.ipynb`)
-* Run all cells to convert the extracted numerical feature vectors into structured **natural-language temporal descriptions** paired with their standardized numerical feature arrays (30% train / 30% validation / 40% test split across 2,220 valid appliance events).
-
-### Stage 3: XCM Training, Evaluation & Explainability (`LLM-MLP.ipynb`)
-* Configure the target appliance for One-vs-Rest (OvR) binary classification (`Kettle`, `Fridge`, `Dishwasher`, `Washing Machine`, or `Microwave`).
-* Run all cells to:
-  1. Fine-tune the **Llama-3.2-1B** query/key attention projections with LoRA ($r = 8$, $\alpha = 32$, $\text{lr} = 5 \times 10^{-5}$) jointly with the 2-layer MLP ($\text{lr} = 10^{-2}$) for up to 10 epochs with early stopping.
-  2. Evaluate Accuracy, MCC, Macro Precision/Recall/F1, ROC-AUC, and confusion matrices.
-  3. Generate **modality-ablation explainability traces** comparing semantic vs. numeric probability contributions for individual test events.
-
----
 
 ## 📊 Key Results (UK-DALE Household 1)
 
