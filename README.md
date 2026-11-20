@@ -15,7 +15,7 @@ Non-Intrusive Load Monitoring (NILM) models often require large volumes of label
 
 ### Key Highlights
 * **Cross-Modal Representation Fusion:** Integrates a LoRA-tuned **Llama-3.2-1B** Small Language Model (SLM) encoder (training only **0.069%** of parameters) with a lightweight **2-layer MLP** (64 hidden units per layer) to jointly process semantic event descriptions and numerical electrical signatures.
-* **Multi-Rate Feature Extraction (UK-DALE Household 1):** Detects active appliance events on low-frequency power channels (1/6 Hz) and extracts steady-state and transient electrical/harmonic features (\(V_{\text{rms}}\), \(I_{\text{rms}}\), P, S, Q, Power Factor, Crest Factor, and 3rd, 5th, and 7th order FFT harmonics) from 16 kHz high-frequency waveforms across time offsets \(T \in \{0, 3, 8, 15, 30, 60\}\text{ s}\).
+* **Multi-Rate Feature Extraction (UK-DALE Household 1):** Detects active appliance events on low-frequency power channels (1/6 Hz) and extracts steady-state and transient electrical/harmonic features from 16 kHz high-frequency waveforms across time offsets.
 * **Built-in Modality-Ablation Explainability:** Isolates semantic (SLM) vs. numerical (MLP) confidence shifts and identifies dominant physical decision anchors (e.g., peak onset power and harmonic ratios) for every inference event.
 * **Strong Performance:** Improves average Matthews Correlation Coefficient (MCC) by **6.38%** over Seq2point and **13.64%** over BERT4NILM across five target appliances (*Kettle, Fridge, Dishwasher, Washing Machine, and Microwave*), achieving **0.086 s** per-event inference latency.
 
