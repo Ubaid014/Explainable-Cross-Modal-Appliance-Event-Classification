@@ -1,11 +1,5 @@
 # Explainable Cross-Modal Appliance Event Classification with a Small Language Model
 
-[![Award](https://shields.io)](#)
-[![Framework](https://shields.io)](#)
-[![Domain](https://shields.io)](#)
-[![Dataset](https://shields.io)](#)
-
-Official implementation of the **IEEE PES Australasian Universities Power Engineering Conference (AUPEC) 2026 Best Paper Award** winning study:
 
 > **Explainable Cross-Modal Appliance Event Classification with a Small Language Model**  
 > **Ubaid Ahmed**¹, **Ahsan Raza Khan**², **Rao Naveed Bin Rais**³, **Sajjad Hussain**¹, and **Ahmed Zoha**¹  
